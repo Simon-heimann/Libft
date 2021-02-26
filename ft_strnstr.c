@@ -12,22 +12,14 @@
 
 #include "libft.h"
 
-static int				count_size(const char *s)
-{
-	int					i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
 char					*ft_strnstr(const char *s, const char *f, size_t x)
 {
 	unsigned long		i;
 	unsigned long		j;
+	unsigned long		len;
 
 	i = 0;
+	len = (unsigned long)ft_strlen((char *)f);
 	if (f[0] == '\0')
 		return ((char *)s);
 	while (s[i] && i < x)
@@ -36,7 +28,7 @@ char					*ft_strnstr(const char *s, const char *f, size_t x)
 		while (s[i + j] && s[i + j] == f[j] && i + j < x)
 		{
 			j++;
-			if (j == (unsigned long)count_size((char *)f))
+			if (j == len)
 			{
 				return ((char *)&s[i]);
 			}

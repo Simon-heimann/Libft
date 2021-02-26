@@ -16,17 +16,17 @@ void		*ft_memcpy(void *dest, const void *src, size_t num)
 {
 	char	*ndest;
 	char	*nsrc;
-	size_t	ind;
+	size_t	i;
 
-	ndest = (char *)dest;
-	nsrc = (char *)src;
-	ind = 0;
+	ndest = (void *)dest;
+	nsrc = (void *)src;
+	i = 0;
 	if (dest == src || num == 0)
 		return (dest);
-	while (ind < num)
+	while (i < num)
 	{
-		ndest[ind] = nsrc[ind];
-		ind++;
+		ndest[i] = nsrc[i];
+		i++;
 	}
-	return ((void *)ndest);
+	return (ndest);
 }
